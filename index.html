@@ -49,19 +49,21 @@
     padding:1rem 1.3rem;
     background:#f9ffff;
     margin-top:1rem;
+    overflow:auto; /* Handles potential overflow */
   }
+  
   /* Improve readability inside instruction boxes */
   .box ul,
   .box p,
   .box .tip {
-    max-width: 75ch; /* keeps line length comfortable (≈ 75 characters) */
-    margin-left: auto;
-    margin-right: auto; /* centers text within the box */
- }
+    max-width: 100%; /* Changed from 75ch to 100% for better mobile compatibility */
+    margin-left: 0; /* Removed auto margin to prevent text alignment issues */
+    margin-right: 0;
+  }
 
   .box ul ul {
-    max-width: 70ch; /* slightly narrower for nested lists */
- }
+    max-width: 100%; /* Changed from 70ch for better fit */
+  }
 
   .example{text-align:center;margin:1.5rem 0;}
   .example img{
@@ -130,18 +132,10 @@
     margin-top:2rem;
     padding-top:1rem;
   }
-  .box {
-    border:1.5px solid #00b0b0;
-    border-radius:8px;
-    padding:1rem 1.3rem;
-    background:#f9ffff;
-    margin-top:1rem;
-    overflow:hidden; /* Ensures inner margins don't collapse outside */
- }
 
- /* Reset margins for video inside .box */
+  /* Reset margins for video inside .box */
  .video-section.in-box {
-  margin:1.5rem 0 0 0; /* Top space only, no bottom collapse */
+  margin:1.5rem 0; /* Added bottom margin for spacing */
  }
 
   .quiz-section{
@@ -243,8 +237,16 @@
   margin-top:0.2rem;
 }
 
+  /* Added a more responsive container padding for mobile */
   @media(max-width:700px){
-    .container{padding:2rem;}
+    .container{padding:1.5rem;}
+    .box {
+      padding:0.8rem 1rem;
+    }
+    .box ul, .box p, .box .tip {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 </style>
 </head>
@@ -255,18 +257,18 @@
 
 <div class="outcome-banner">
   <img src="images/outcome-example.jpg" alt="Example outcome">
-  <div class="caption">Example outcome demonstrating use of Content‑Aware Fill and contextual artist research text.</div>
+  <div class="caption">Example outcome demonstrating use of Content‑Aware Fill and contextual artist research text.</div>
 </div>
 
-<p><strong>Purpose:</strong> Combine <em>Photoshop practical skills</em> with <em>artist research and reflection</em>. Use <strong>Content‑Aware Fill</strong> to create experimental imagery from your project work, then add contextual notes with the <strong>Type Tool (T)</strong>.</p>
+<p><strong>Purpose:</strong> Combine <em>Photoshop practical skills</em> with <em>artist research and reflection</em>. Use <strong>Content‑Aware Fill</strong> to create experimental imagery from your project work, then add contextual notes with the <strong>Type Tool (T)</strong>.</p>
 
-<div class="note">Recommended format: <strong>A3 landscape (420 × 297 mm) | 300 dpi | CMYK</strong></div>
+<div class="note">Recommended format: <strong>A3 landscape (420 × 297 mm) | 300 dpi | CMYK</strong></div>
 
-<h2>Step 1 — Prepare Document</h2>
+<h2>Step 1 — Prepare Document</h2>
 <div class="box">
   <ul>
-    <li>File → New → <strong>A3 Landscape</strong></li>
-    <li>Resolution 300 dpi | Colour Mode CMYK</li>
+    <li>File → New → <strong>A3 Landscape</strong></li>
+    <li>Resolution 300 dpi | Colour Mode CMYK</li>
   </ul>
 </div>
 
@@ -275,18 +277,18 @@
   <div class="banner-caption">Create your A3 layout for consistent portfolio presentation.</div>
 </div>
 
-<h2>Step 2 — Arrange Your Work</h2>
+<h2>Step 2 — Arrange Your Work</h2>
 <div class="box">
   <ul>
     <li><strong>Import images</strong> of your design experiments.</li>
     <li>You can do this by:
       <ul>
         <li><strong>Dragging and dropping</strong> an image from your computer directly into the Photoshop window — it will appear as a new layer.</li>
-        <li>Or, from the menu, choose <strong>File → Place Embedded…</strong> to insert an image into your A3 document.</li>
+        <li>Or, from the menu, choose <strong>File → Place Embedded…</strong> to insert an image into your A3 document.</li>
       </ul>
     </li>
-    <li>Use <strong>Move Tool (V)</strong> to position, and <strong>Cmd/Ctrl + T</strong> to resize or rotate each one.</li>
-    <li>Add a white background layer (<strong>Edit → Fill → White</strong>) so your work stands out clearly.</li>
+    <li>Use <strong>Move Tool (V)</strong> to position, and <strong>Cmd/Ctrl + T</strong> to resize or rotate each one.</li>
+    <li>Add a white background layer (<strong>Edit → Fill → White</strong>) so your work stands out clearly.</li>
   </ul>
 </div>
 
@@ -295,20 +297,20 @@
   <div class="banner-caption">Balance the composition before adding effects.</div>
 </div>
 
-<h2>Step 3 — Content‑Aware Fill (Expanding Ideas from Your Image)</h2>
+<h2>Step 3 — Content‑Aware Fill (Expanding Ideas from Your Image)</h2>
 <div class="box">
   <ul>
-    <li>Use the <strong>Rectangular Marquee Tool (M)</strong> to select a <strong>visually interesting area</strong> of your image — this might be a texture, shape or detail you find intriguing.</li>
-    <li>Go to <strong>Edit → Copy (Cmd/Ctrl +C)</strong> and then <strong>Edit → Paste (Cmd/Ctrl + V)</strong>.  
-      This creates a <strong>new layer</strong> containing just that section of your image.</li>
-    <li>In the Layers panel, click the 👁 (eye icon) to hide the original layer so you can see your cut‑out clearly on a white background.</li>
-    <li>Select the <strong>Magic Wand Tool (W)</strong> and click on the <strong>white areas</strong> around your shape to select the background space.</li>
-    <li>Go to <strong>Edit → Content‑Aware Fill…</strong> → adjust the sampling and preview → click <strong>OK</strong>.  
-      Photoshop fills the space around your fragment using information from the original image, creating an abstract and unexpected result.</li>
+    <li>Use the <strong>Rectangular Marquee Tool (M)</strong> to select a <strong>visually interesting area</strong> of your image — this might be a texture, shape or detail you find intriguing.</li>
+    <li>Go to <strong>Edit → Copy (Cmd/Ctrl +C)</strong> and then <strong>Edit → Paste (Cmd/Ctrl + V)</strong>.  
+      This creates a <strong>new layer</strong> containing just that section of your image.</li>
+    <li>In the Layers panel, click the 👁 (eye icon) to hide the original layer so you can see your cut‑out clearly on a white background.</li>
+    <li>Select the <strong>Magic Wand Tool (W)</strong> and click on the <strong>white areas</strong> around your shape to select the background space.</li>
+    <li>Go to <strong>Edit → Content‑Aware Fill…</strong> → adjust the sampling and preview → click <strong>OK</strong>.  
+      Photoshop fills the space around your fragment using information from the original image, creating an abstract and unexpected result.</li>
   </ul>
 
   <div class="tip">
-    💡 <strong>Purpose:</strong> This process helps you <em>experiment and think more abstractly</em> with your primary research — generating new textures, compositions, and forms that can inspire future design ideas.
+    💡 <strong>Purpose:</strong> This process helps you <em>experiment and think more abstractly</em> with your primary research — generating new textures, compositions, and forms that can inspire future design ideas.
   </div>
 
   <div class="video-section in-box">
@@ -316,16 +318,16 @@
       <iframe src="https://ual.cloud.panopto.eu/Panopto/Pages/embed.aspx?id=b3839b74-5113-4c3f-9929-b37d00a206ba"></iframe>
     </div>
     <div class="banner-caption">
-      Watch the Content‑Aware Fill demonstration to see these steps in action.
+      Watch the Content‑Aware Fill demonstration to see these steps in action.
     </div>
   </div>
 </div>
 
 
-<h2>Step 4 — Refine and Blend</h2>
+<h2>Step 4 — Refine and Blend</h2>
 <div class="box">
   <ul>
-    <li>Merge layers and experiment with blending modes and opacity.</li>
+    <li>Merge layers and experiment with blending modes and opacity.</li>
   </ul>
 </div>
 
@@ -334,10 +336,10 @@
   <div class="banner-caption">Blend layers for a unified effect.</div>
 </div>
 
-<h2>Step 5 — Add Text & Artist Research</h2>
+<h2>Step 5 — Add Text & Artist Research</h2>
 <div class="box">
   <ul>
-    <li>Use <strong>Type Tool (T)</strong> to write artist names, short quotes, and reflective notes.</li>
+    <li>Use <strong>Type Tool (T)</strong> to write artist names, short quotes, and reflective notes.</li>
     <li>Keep sentences short and clear — focus on meaning, not long text blocks.</li>
   </ul>
 </div>
@@ -350,17 +352,17 @@
 </div>
 
 <!-- TYPOGRAPHY SECTION -->
-<h2>Step 5.1 — Typography & Text Layout</h2>
+<h2>Step 5.1 — Typography & Text Layout</h2>
 <div class="box">
-  <p><strong>Aim:</strong> Make sure your text supports your images and feels professional and balanced.</p>
+  <p><strong>Aim:</strong> Make sure your text supports your images and feels professional and balanced.</p>
   <ul>
-    <li>Use clean, readable fonts – avoid overly decorative or “playful” typefaces such as <strong>Chalkduster</strong>.</li>
-    <li>Recommended: <strong>Andale Mono</strong>, <strong>Orator Std</strong>, <strong>Grandview Display (Body)</strong>, or <strong>Typewriter Condensed</strong>.</li>
-    <li>Keep the text size modest: 9 – 14 pt is usually enough for A3 print layouts.</li>
-    <li>Use consistent spacing and alignment – left‑aligned or lightly centred text often works best.</li>
-    <li>Avoid placing text directly over busy image areas – give it space or use a semi‑transparent shape behind it.</li>
+    <li>Use clean, readable fonts – avoid overly decorative or "playful" typefaces such as <strong>Chalkduster</strong>.</li>
+    <li>Recommended: <strong>Andale Mono</strong>, <strong>Orator Std</strong>, <strong>Grandview Display (Body)</strong>, or <strong>Typewriter Condensed</strong>.</li>
+    <li>Keep the text size modest: 9 – 14 pt is usually enough for A3 print layouts.</li>
+    <li>Use consistent spacing and alignment – left‑aligned or lightly centred text often works best.</li>
+    <li>Avoid placing text directly over busy image areas – give it space or use a semi‑transparent shape behind it.</li>
   </ul>
-  <p><strong>Tip:</strong> Good text design shouldn’t compete with your images — it should help tell the story, quietly.</p>
+  <p><strong>Tip:</strong> Good text design shouldn't compete with your images — it should help tell the story, quietly.</p>
 </div>
 
 <div class="example">
@@ -368,20 +370,20 @@
   <input type="text" id="fontSampleInput" placeholder="Type your reflection text here…">
 
   <div id="fontSamples" style="margin-top:1.2rem;display:flex;flex-direction:column;gap:1rem;text-align:center;">
-    <div style="font-family:'Andale Mono',monospace;">Sample will update here <strong>Andale Mono</strong></div>
-    <div style="font-family:'Orator Std','Courier New',monospace;">Sample will update here <strong>Orator Std</strong></div>
-    <div style="font-family:'Grandview Display','Segoe UI',sans-serif;">Sample will update here <strong>Grandview Display (Body)</strong></div>
-    <div style="font-family:'Courier New',monospace;">Sample will update here <strong>Typewriter Condensed</strong></div>
+    <div style="font-family:'Andale Mono',monospace;">Sample will update here <strong>Andale Mono</strong></div>
+    <div style="font-family:'Orator Std','Courier New',monospace;">Sample will update here <strong>Orator Std</strong></div>
+    <div style="font-family:'Grandview Display','Segoe UI',sans-serif;">Sample will update here <strong>Grandview Display (Body)</strong></div>
+    <div style="font-family:'Courier New',monospace;">Sample will update here <strong>Typewriter Condensed</strong></div>
   </div>
 </div>
 
-<h2>Step 6 — Finalise A3 Page</h2>
+<h2>Step 6 — Finalise A3 Page</h2>
 <div class="box">
   <ul>
     <li>Ask yourself: <strong>Do my images connect and tell a story?</strong></li>
     <li>Does my <strong>layout help to show and enhance</strong> this story?</li>
-    <li>When finished, go to <strong>File → Save As → Photoshop (.PSD)</strong> — this keeps layers editable.</li>
-    <li>Then export as <strong>JPEG (.JPG)</strong> → ready for upload to Padlet or online review.</li>
+    <li>When finished, go to <strong>File → Save As → Photoshop (.PSD)</strong> — this keeps layers editable.</li>
+    <li>Then export as <strong>JPEG (.JPG)</strong> → ready for upload to Padlet or online review.</li>
   </ul>
 </div>
 
@@ -392,64 +394,64 @@
 
 <!-- Artist Section -->
 <div class="artist-section">
-  <h2>Artist Research & Reflection</h2>
+  <h2>Artist Research & Reflection</h2>
   <p>Now choose <strong>your own artist</strong> — someone who connects to your idea or visual interest.  
   The list below shows different approaches you can look at for inspiration, but you should find the one that best supports <em>your story</em>.</p>
 
   <ul>
-    <li><strong>Gerhard Richter</strong> – Uses blurring to question memory and photography.</li>
-    <li><strong>Lorna Simpson</strong> – Combines image and text to explore identity and language.</li>
-    <li><strong>Andreas Gursky</strong> – Builds digital compositions from multiple images.</li>
-    <li><strong>Ruth van Beek</strong> – Creates cut‑outs that suggest movement and emotion.</li>
-    <li><strong>Sarah Charlesworth</strong> – Investigates how images communicate concepts.</li>
+    <li><strong>Gerhard Richter</strong> – Uses blurring to question memory and photography.</li>
+    <li><strong>Lorna Simpson</strong> – Combines image and text to explore identity and language.</li>
+    <li><strong>Andreas Gursky</strong> – Builds digital compositions from multiple images.</li>
+    <li><strong>Ruth van Beek</strong> – Creates cut‑outs that suggest movement and emotion.</li>
+    <li><strong>Sarah Charlesworth</strong> – Investigates how images communicate concepts.</li>
   </ul>
 
   <div class="reflection">
-    <p><strong>Reflection prompts — add text directly on your A3 page:</strong></p>
+    <p><strong>Reflection prompts — add text directly on your A3 page:</strong></p>
     <ul>
       <li>Which artist did you choose, and why does their work connect to your images?</li>
-      <li>Include a short quote or idea from the artist that links with your theme (for example: memory, identity, place).</li>
+      <li>Include a short quote or idea from the artist that links with your theme (for example: memory, identity, place).</li>
       <li>Write one or two sentences explaining what you learned from this artist — visually or conceptually.</li>
-      <li>Make sure to reference your sources correctly — this is marked and required for your portfolio submission. Include the <strong>artist’s name</strong> and <strong>book, website, or museum source</strong>. You can use the <a href="https://hsstokes.github.io/Harvard-Referencing-Guide/" target="_blank">Harvard Referencing Guide & Generator</a> to help you create accurate references.</li>
+      <li>Make sure to reference your sources correctly — this is marked and required for your portfolio submission. Include the <strong>artist's name</strong> and <strong>book, website, or museum source</strong>. You can use the <a href="https://hsstokes.github.io/Harvard-Referencing-Guide/" target="_blank">Harvard Referencing Guide & Generator</a> to help you create accurate references.</li>
     </ul>
   </div>
 </div> 
 
 <!-- QUIZ SECTION -->
 <div class="quiz-section">
-  <h2 class="quiz-title">Knowledge Check — Content‑Aware Fill & Photoshop Skills</h2>
+  <h2 class="quiz-title">Knowledge Check — Content‑Aware Fill & Photoshop Skills</h2>
   <div id="quiz"></div>
   <div id="result"></div>
 </div>
 
 <!-- Referencing Reminder -->
 <div class="note" style="margin-top:2rem;text-align:center;">
-  📚 <strong>Referencing Reminder:</strong> All artist and source references must follow the Harvard style.  
-  Use the <a href="https://hsstokes.github.io/Harvard-Referencing-Guide/" target="_blank">Harvard Referencing Guide & Generator</a> to create accurate citations for your portfolio.
+  📚 <strong>Referencing Reminder:</strong> All artist and source references must follow the Harvard style.  
+  Use the <a href="https://hsstokes.github.io/Harvard-Referencing-Guide/" target="_blank">Harvard Referencing Guide & Generator</a> to create accurate citations for your portfolio.
 </div>
 
 <footer>
-  © 2025 Content‑Aware Fill & Artist Reflection Exercise | Encouraging visual experimentation and reflective practice.
+  © 2025 Content‑Aware Fill & Artist Reflection Exercise | Encouraging visual experimentation and reflective practice.
 </footer>
 </div>
 
 <script>
 // Quiz Functionality
 const quizData = [
-  {question:"1️⃣ Which Photoshop tool automatically fills a selected area by analysing surrounding pixels?",
-    options:["Clone Stamp Tool","Content‑Aware Fill","Gradient Tool","Brush Tool"],correct:1},
-  {question:"2️⃣ What shortcut key activates the Type Tool?",
+  {question:"1️⃣ Which Photoshop tool automatically fills a selected area by analysing surrounding pixels?",
+    options:["Clone Stamp Tool","Content‑Aware Fill","Gradient Tool","Brush Tool"],correct:1},
+  {question:"2️⃣ What shortcut key activates the Type Tool?",
     options:["M","T","B","V"],correct:1},
-  {question:"3️⃣ Which tool is used to move and position elements on your A3 layout?",
-    options:["Lasso Tool","Crop Tool","Move Tool (V)","Eraser Tool"],correct:2},
-  {question:"4️⃣ Which selection tool is used before applying Content‑Aware Fill?",
-    options:["Magic Wand Tool","Polygonal Lasso Tool","Rectangular Marquee Tool (M)","Quick Selection Tool"],correct:2},
-  {question:"5️⃣ Why would you merge layers during the process?",
+  {question:"3️⃣ Which tool is used to move and position elements on your A3 layout?",
+    options:["Lasso Tool","Crop Tool","Move Tool (V)","Eraser Tool"],correct:2},
+  {question:"4️⃣ Which selection tool is used before applying Content‑Aware Fill?",
+    options:["Magic Wand Tool","Polygonal Lasso Tool","Rectangular Marquee Tool (M)","Quick Selection Tool"],correct:2},
+  {question:"5️⃣ Why would you merge layers during the process?",
     options:["To make the file more compact and control blended effects together","Because layers are not allowed in Photoshop","To hide mistakes permanently","To change to RGB colour mode"],correct:0},
-  {question:"6️⃣ Which file format keeps all editable Photoshop layers?",
+  {question:"6️⃣ Which file format keeps all editable Photoshop layers?",
     options:["JPG","PNG","PSD","TIFF"],correct:2},
-  {question:"7️⃣ For print‑quality work, which resolution should you select when creating your document?",
-    options:["72 dpi","150 dpi","300 dpi","600 dpi"],correct:2}
+  {question:"7️⃣ For print‑quality work, which resolution should you select when creating your document?",
+    options:["72 dpi","150 dpi","300 dpi","600 dpi"],correct:2}
 ];
 let currentQuestion=0,score=0;
 function loadQuestion(){
@@ -469,11 +471,11 @@ function showResult(){
   const total=quizData.length;
   const percent=Math.round((score/total)*100);
   let feedback="";
-  if(percent>=80)feedback="🌟 Excellent — you understand the Photoshop process well!";
-  else if(percent>=50)feedback="👍 Good work — revise any unclear steps.";
-  else feedback="💭 Keep practising each tool and try again later.";
+  if(percent>=80)feedback="🌟 Excellent — you understand the Photoshop process well!";
+  else if(percent>=50)feedback="👍 Good work — revise any unclear steps.";
+  else feedback="💭 Keep practising each tool and try again later.";
   document.getElementById("quiz").innerHTML="";
-  document.getElementById("result").innerHTML=`You scored <strong>${score}</strong> / <strong>${total}</strong> (${percent}%)<br>${feedback}`;
+  document.getElementById("result").innerHTML=`You scored <strong>${score}</strong> / <strong>${total}</strong> (${percent}%)<br>${feedback}`;
 }
 loadQuestion();
 
@@ -481,7 +483,7 @@ loadQuestion();
 const input=document.getElementById('fontSampleInput');
 if(input){
   const samples=document.querySelectorAll('#fontSamples div');
-  input.addEventListener('input',()=>{samples.forEach(s=>s.firstChild.textContent=input.value||'Sample will update here ');});
+  input.addEventListener('input',()=>{samples.forEach(s=>s.firstChild.textContent=input.value||'Sample will update here ');});
 }
 </script>
 </body>
