@@ -118,6 +118,19 @@
     margin-top:2rem;
     padding-top:1rem;
   }
+  .box {
+    border:1.5px solid #00b0b0;
+    border-radius:8px;
+    padding:1rem 1.3rem;
+    background:#f9ffff;
+    margin-top:1rem;
+    overflow:hidden; /* Ensures inner margins don't collapse outside */
+ }
+
+ /* Reset margins for video inside .box */
+ .video-section.in-box {
+  margin:1.5rem 0 0 0; /* Top space only, no bottom collapse */
+ }
 
   .quiz-section{
     margin-top:3rem;
@@ -281,11 +294,12 @@
     <li>Go to <strong>Edit → Content‑Aware Fill…</strong> → adjust the sampling and preview → click <strong>OK</strong>.  
       Photoshop fills the space around your fragment using information from the original image, creating an abstract and unexpected result.</li>
   </ul>
+
   <div class="tip">
     💡 <strong>Purpose:</strong> This process helps you <em>experiment and think more abstractly</em> with your primary research — generating new textures, compositions, and forms that can inspire future design ideas.
   </div>
 
-  <div class="video-section">
+  <div class="video-section in-box">
     <div class="video-container">
       <iframe src="https://ual.cloud.panopto.eu/Panopto/Pages/embed.aspx?id=b3839b74-5113-4c3f-9929-b37d00a206ba"></iframe>
     </div>
