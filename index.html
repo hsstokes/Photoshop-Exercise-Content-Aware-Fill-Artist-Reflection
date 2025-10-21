@@ -152,6 +152,7 @@
   button.submit-quiz:hover{background:#0a8080;}
 
   footer{text-align:center;margin-top:3rem;font-size:0.8rem;color:#555;}
+  
   /* Compact quiz styling */
 .quiz-title {
   color:#0a8080;
@@ -190,6 +191,31 @@
   margin-top:1.5rem;
   font-weight:bold;
   color:#ea37a3;
+}
+
+/* Typography demo styles */
+#fontSampleInput {
+  font-family:inherit;
+  font-size:1rem;
+  width:90%;
+  max-width:600px;
+  padding:0.6rem;
+  border:1px solid #00b0b0;
+  border-radius:6px;
+  margin-top:0.5rem;
+}
+#fontSamples div {
+  font-size:1.1rem;
+  border:1px dashed #00b0b0;
+  border-radius:5px;
+  padding:0.6rem;
+  background:#f9ffff;
+}
+#fontSamples strong {
+  display:block;
+  font-size:0.8rem;
+  color:#555;
+  margin-top:0.2rem;
 }
 
   @media(max-width:700px){
@@ -286,6 +312,32 @@
   <div class="banner-caption">Watch how to add and format text in Photoshop.</div>
 </div>
 
+<!-- TYPOGRAPHY SECTION -->
+<h2>Step 5.1 — Typography & Text Layout</h2>
+<div class="box">
+  <p><strong>Aim:</strong> Make sure your text supports your images and feels professional and balanced.</p>
+  <ul>
+    <li>Use clean, readable fonts – avoid overly decorative or “playful” typefaces such as <strong>Chalkduster</strong>.</li>
+    <li>Recommended: <strong>Andale Mono</strong>, <strong>Orator Std</strong>, <strong>Grandview Display (Body)</strong>, or <strong>Typewriter Condensed</strong>.</li>
+    <li>Keep the text size modest: 9 – 14 pt is usually enough for A3 print layouts.</li>
+    <li>Use consistent spacing and alignment – left‑aligned or lightly centred text often works best.</li>
+    <li>Avoid placing text directly over busy image areas – give it space or use a semi‑transparent shape behind it.</li>
+  </ul>
+  <p><strong>Tip:</strong> Good text design shouldn’t compete with your images — it should help tell the story, quietly.</p>
+</div>
+
+<div class="example">
+  <p class="banner-caption">Try typing below to see how different fonts change the tone of your text:</p>
+  <input type="text" id="fontSampleInput" placeholder="Type your reflection text here…">
+
+  <div id="fontSamples" style="margin-top:1.2rem;display:flex;flex-direction:column;gap:1rem;text-align:center;">
+    <div style="font-family:'Andale Mono',monospace;">Sample will update here <strong>Andale Mono</strong></div>
+    <div style="font-family:'Orator Std','Courier New',monospace;">Sample will update here <strong>Orator Std</strong></div>
+    <div style="font-family:'Grandview Display','Segoe UI',sans-serif;">Sample will update here <strong>Grandview Display (Body)</strong></div>
+    <div style="font-family:'Courier New',monospace;">Sample will update here <strong>Typewriter Condensed</strong></div>
+  </div>
+</div>
+
 <h2>Step 6 — Finalise A3 Page</h2>
 <div class="box">
   <ul>
@@ -322,8 +374,8 @@
       <li>Include a short quote or idea from the artist that links with your theme (for example: memory, identity, place).</li>
       <li>Write one or two sentences explaining what you learned from this artist — visually or conceptually.</li>
       <li>Make sure to reference your sources correctly — this is marked and required for your portfolio submission. Include the <strong>artist’s name</strong> and <strong>book, website, or museum source</strong>. You can use the <a href="https://hsstokes.github.io/Harvard-Referencing-Guide/" target="_blank">Harvard Referencing Guide & Generator</a> to help you create accurate references.</li>
-  </ul>
- </div>
+    </ul>
+  </div>
 </div> 
 
 <!-- QUIZ SECTION -->
@@ -345,50 +397,24 @@
 </div>
 
 <script>
+// Quiz Functionality
 const quizData = [
-  {
-    question:"1️⃣ Which Photoshop tool automatically fills a selected area by analysing surrounding pixels?",
-    options:["Clone Stamp Tool","Content‑Aware Fill","Gradient Tool","Brush Tool"],
-    correct:1
-  },
-  {
-    question:"2️⃣ What shortcut key activates the Type Tool?",
-    options:["M","T","B","V"],
-    correct:1
-  },
-  {
-    question:"3️⃣ Which tool is used to move and position elements on your A3 layout?",
-    options:["Lasso Tool","Crop Tool","Move Tool (V)","Eraser Tool"],
-    correct:2
-  },
-  {
-    question:"4️⃣ Which selection tool is used before applying Content‑Aware Fill?",
-    options:["Magic Wand Tool","Polygonal Lasso Tool","Rectangular Marquee Tool (M)","Quick Selection Tool"],
-    correct:2
-  },
-  {
-    question:"5️⃣ Why would you merge layers during the process?",
-    options:[
-      "To make the file more compact and control blended effects together",
-      "Because layers are not allowed in Photoshop",
-      "To hide mistakes permanently",
-      "To change to RGB colour mode"],
-    correct:0
-  },
-  {
-    question:"6️⃣ Which file format keeps all editable Photoshop layers?",
-    options:["JPG","PNG","PSD","TIFF"],
-    correct:2
-  },
-  {
-    question:"7️⃣ For print‑quality work, which resolution should you select when creating your document?",
-    options:["72 dpi","150 dpi","300 dpi","600 dpi"],
-    correct:2
-  }
+  {question:"1️⃣ Which Photoshop tool automatically fills a selected area by analysing surrounding pixels?",
+    options:["Clone Stamp Tool","Content‑Aware Fill","Gradient Tool","Brush Tool"],correct:1},
+  {question:"2️⃣ What shortcut key activates the Type Tool?",
+    options:["M","T","B","V"],correct:1},
+  {question:"3️⃣ Which tool is used to move and position elements on your A3 layout?",
+    options:["Lasso Tool","Crop Tool","Move Tool (V)","Eraser Tool"],correct:2},
+  {question:"4️⃣ Which selection tool is used before applying Content‑Aware Fill?",
+    options:["Magic Wand Tool","Polygonal Lasso Tool","Rectangular Marquee Tool (M)","Quick Selection Tool"],correct:2},
+  {question:"5️⃣ Why would you merge layers during the process?",
+    options:["To make the file more compact and control blended effects together","Because layers are not allowed in Photoshop","To hide mistakes permanently","To change to RGB colour mode"],correct:0},
+  {question:"6️⃣ Which file format keeps all editable Photoshop layers?",
+    options:["JPG","PNG","PSD","TIFF"],correct:2},
+  {question:"7️⃣ For print‑quality work, which resolution should you select when creating your document?",
+    options:["72 dpi","150 dpi","300 dpi","600 dpi"],correct:2}
 ];
-
 let currentQuestion=0,score=0;
-
 function loadQuestion(){
   const q=quizData[currentQuestion];
   document.getElementById("quiz").innerHTML=`
@@ -397,13 +423,11 @@ function loadQuestion(){
       ${q.options.map((opt,i)=>`<button class='quiz-btn' onclick='checkAnswer(${i})'>${opt}</button>`).join('')}
     </div>`;
 }
-
 function checkAnswer(i){
   if(i===quizData[currentQuestion].correct)score++;
   currentQuestion++;
-  currentQuestion<quizData.length ? loadQuestion() : showResult();
+  currentQuestion<quizData.length?loadQuestion():showResult();
 }
-
 function showResult(){
   const total=quizData.length;
   const percent=Math.round((score/total)*100);
@@ -412,11 +436,16 @@ function showResult(){
   else if(percent>=50)feedback="👍 Good work — revise any unclear steps.";
   else feedback="💭 Keep practising each tool and try again later.";
   document.getElementById("quiz").innerHTML="";
-  document.getElementById("result").innerHTML=
-    `You scored <strong>${score}</strong> / <strong>${total}</strong> (${percent}%)<br>${feedback}`;
+  document.getElementById("result").innerHTML=`You scored <strong>${score}</strong> / <strong>${total}</strong> (${percent}%)<br>${feedback}`;
 }
-
 loadQuestion();
+
+// Font preview typing
+const input=document.getElementById('fontSampleInput');
+if(input){
+  const samples=document.querySelectorAll('#fontSamples div');
+  input.addEventListener('input',()=>{samples.forEach(s=>s.firstChild.textContent=input.value||'Sample will update here ');});
+}
 </script>
 </body>
 </html>
