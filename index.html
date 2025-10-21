@@ -126,6 +126,14 @@
     padding:1.5rem;
     background:linear-gradient(135deg,#fff5fb,#f9ffff);
   }
+  .reference-note{
+    border-left:4px solid #ea37a3;
+    background:#fff5fb;
+    padding:1rem;
+    text-align:center;
+    margin-top:2rem;
+    border-radius:8px;
+ }
   .quiz-question{margin-bottom:1rem;font-weight:bold;color:#0a8080;}
   .answers{list-style:none;padding-left:0;margin-bottom:1rem;}
   .answers li{margin:0.3rem 0;}
@@ -144,6 +152,45 @@
   button.submit-quiz:hover{background:#0a8080;}
 
   footer{text-align:center;margin-top:3rem;font-size:0.8rem;color:#555;}
+  /* Compact quiz styling */
+.quiz-title {
+  color:#0a8080;
+  margin-bottom:1rem;
+  text-align:center;
+}
+.question {
+  font-weight:bold;
+  color:#0a8080;
+  margin-bottom:1rem;
+  text-align:center;
+}
+.options {
+  display:flex;
+  flex-direction:column;
+  gap:0.6rem;
+  align-items:center;
+}
+.quiz-btn {
+  background:#00b0b0;
+  color:#fff;
+  border:none;
+  padding:0.6rem 1.2rem;
+  border-radius:6px;
+  font-family:inherit;
+  font-size:0.95rem;
+  cursor:pointer;
+  width:90%;
+  max-width:400px;
+}
+.quiz-btn:hover {
+  background:#0a8080;
+}
+#result {
+  text-align:center;
+  margin-top:1.5rem;
+  font-weight:bold;
+  color:#ea37a3;
+}
 
   @media(max-width:700px){
     .container{padding:2rem;}
@@ -321,67 +368,96 @@ Hide canvas
 </div>
 
 <!-- QUIZ SECTION -->
-<div class="quiz-section" id="quiz">
-  <h2>Step 7 — Quick Quiz: Photoshop Essentials</h2>
+<div class="quiz-section">
+  <h2 class="quiz-title">Knowledge Check — Content‑Aware Fill & Photoshop Skills</h2>
+  <div id="quiz"></div>
+  <div id="result"></div>
+</div>
 
-  <div class="quiz-question">1. Which Photoshop tool automatically fills a selected area by analysing surrounding pixels?</div>
-  <ul class="answers">
-    <li><label><input type="radio" name="q1" value="a"> Clone Stamp Tool</label></li>
-    <li><label><input type="radio" name="q1" value="b"> Content‑Aware Fill</label></li>
-    <li><label><input type="radio" name="q1" value="c"> Gradient Tool</label></li>
-  </ul>
-  <div class="feedback" id="f1"></div>
-
-  <div class="quiz-question">2. What shortcut key activates the Type Tool?</div>
-  <ul class="answers">
-    <li><label><input type="radio" name="q2" value="a"> M</label></li>
-    <li><label><input type="radio" name="q2" value="b"> T</label></li>
-    <li><label><input type="radio" name="q2" value="c"> B</label></li>
-  </ul>
-  <div class="feedback" id="f2"></div>
-
-  <div class="quiz-question">3. What file format should be used for saving editable Photoshop files?</div>
-  <ul class="answers">
-    <li><label><input type="radio" name="q3" value="a"> JPG</label></li>
-    <li><label><input type="radio" name="q3" value="b"> PNG</label></li>
-    <li><label><input type="radio" name="q3" value="c"> PSD</label></li>
-  </ul>
-  <div class="feedback" id="f3"></div>
-
-  <div class="quiz-question">4. For print-quality layout, which resolution should you choose?</div>
-  <ul class="answers">
-    <li><label><input type="radio" name="q4" value="a"> 72 dpi</label></li>
-    <li><label><input type="radio" name="q4" value="b"> 150 dpi</label></li>
-    <li><label><input type="radio" name="q4" value="c"> 300 dpi</label></li>
-  </ul>
-  <div class="feedback" id="f4"></div>
-
-  <button class="submit-quiz" onclick="checkQuiz()">Check Answers</button>
+<!-- Referencing Reminder -->
+<div class="note" style="margin-top:2rem;text-align:center;">
+  📚 <strong>Referencing Reminder:</strong> All artist and source references must follow the Harvard style.  
+  Use the <a href="https://hsstokes.github.io/Harvard-Referencing-Guide/" target="_blank">Harvard Referencing Guide & Generator</a> to create accurate citations for your portfolio.
 </div>
 
 <footer>
-© 2025 Content‑Aware Fill + Artist Reflection Exercise | Encouraging visual experimentation and reflective practice.
+  © 2025 Content‑Aware Fill & Artist Reflection Exercise | Encouraging visual experimentation and reflective practice.
 </footer>
 </div>
 
 <script>
-function checkQuiz(){
-  const answers={q1:"b",q2:"b",q3:"c",q4:"c"};
-  for(let q in answers){
-    const selected=document.querySelector(`input[name="${q}"]:checked`);
-    const feedback=document.getElementById("f"+q.slice(1));
-    if(!selected){
-      feedback.textContent="Please select an answer.";
-      feedback.style.color="#ea37a3";
-    }else if(selected.value===answers[q]){
-      feedback.textContent="✅ Correct!";
-      feedback.style.color="#0a8080";
-    }else{
-      feedback.textContent="❌ Try again.";
-      feedback.style.color="#ea37a3";
-    }
+const quizData = [
+  {
+    question:"1️⃣ Which Photoshop tool automatically fills a selected area by analysing surrounding pixels?",
+    options:["Clone Stamp Tool","Content‑Aware Fill","Gradient Tool","Brush Tool"],
+    correct:1
+  },
+  {
+    question:"2️⃣ What shortcut key activates the Type Tool?",
+    options:["M","T","B","V"],
+    correct:1
+  },
+  {
+    question:"3️⃣ Which tool is used to move and position elements on your A3 layout?",
+    options:["Lasso Tool","Crop Tool","Move Tool (V)","Eraser Tool"],
+    correct:2
+  },
+  {
+    question:"4️⃣ Which selection tool is used before applying Content‑Aware Fill?",
+    options:["Magic Wand Tool","Polygonal Lasso Tool","Rectangular Marquee Tool (M)","Quick Selection Tool"],
+    correct:2
+  },
+  {
+    question:"5️⃣ Why would you merge layers during the process?",
+    options:[
+      "To make the file more compact and control blended effects together",
+      "Because layers are not allowed in Photoshop",
+      "To hide mistakes permanently",
+      "To change to RGB colour mode"],
+    correct:0
+  },
+  {
+    question:"6️⃣ Which file format keeps all editable Photoshop layers?",
+    options:["JPG","PNG","PSD","TIFF"],
+    correct:2
+  },
+  {
+    question:"7️⃣ For print‑quality work, which resolution should you select when creating your document?",
+    options:["72 dpi","150 dpi","300 dpi","600 dpi"],
+    correct:2
   }
+];
+
+let currentQuestion=0,score=0;
+
+function loadQuestion(){
+  const q=quizData[currentQuestion];
+  document.getElementById("quiz").innerHTML=`
+    <div class='question'>${q.question}</div>
+    <div class='options'>
+      ${q.options.map((opt,i)=>`<button class='quiz-btn' onclick='checkAnswer(${i})'>${opt}</button>`).join('')}
+    </div>`;
 }
+
+function checkAnswer(i){
+  if(i===quizData[currentQuestion].correct)score++;
+  currentQuestion++;
+  currentQuestion<quizData.length ? loadQuestion() : showResult();
+}
+
+function showResult(){
+  const total=quizData.length;
+  const percent=Math.round((score/total)*100);
+  let feedback="";
+  if(percent>=80)feedback="🌟 Excellent — you understand the Photoshop process well!";
+  else if(percent>=50)feedback="👍 Good work — revise any unclear steps.";
+  else feedback="💭 Keep practising each tool and try again later.";
+  document.getElementById("quiz").innerHTML="";
+  document.getElementById("result").innerHTML=
+    `You scored <strong>${score}</strong> / <strong>${total}</strong> (${percent}%)<br>${feedback}`;
+}
+
+loadQuestion();
 </script>
 </body>
 </html>
