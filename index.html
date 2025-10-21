@@ -50,6 +50,18 @@
     background:#f9ffff;
     margin-top:1rem;
   }
+  /* Improve readability inside instruction boxes */
+  .box ul,
+  .box p,
+  .box .tip {
+    max-width: 75ch; /* keeps line length comfortable (≈ 75 characters) */
+    margin-left: auto;
+    margin-right: auto; /* centers text within the box */
+ }
+
+  .box ul ul {
+    max-width: 70ch; /* slightly narrower for nested lists */
+ }
 
   .example{text-align:center;margin:1.5rem 0;}
   .example img{
