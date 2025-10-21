@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photoshop Exercise — Content-Aware Fill & Artist Reflection</title>
+<style>
+  body {
+    margin:0;
+    font-family:"Andale Mono","Orator Std",Courier,monospace;
+    background:
+      linear-gradient(#e0ffff 1px,transparent 1px),
+      linear-gradient(90deg,#e0ffff 1px,transparent 1px),
+      linear-gradient(#ffd6ec 2px,transparent 2px),
+      linear-gradient(90deg,#ffd6ec 2px,transparent 2px);
+    background-size:60px 60px,60px 60px,300px 300px,300px 300px;
+    background-attachment:fixed;
+    color:#222;
+    padding:3vw;
+  }
+  .container{
+    max-width:1100px;
+    margin:0 auto;
+    background:rgba(255,255,255,0.97);
+    border:3px double #00b0b0;
+    border-radius:12px;
+    box-shadow:0 3px 18px rgba(0,0,0,0.1);
+    padding:3rem 4rem;
+  }
+  h1,h2{
+    color:#0a8080;
+    font-weight:bold;
+    letter-spacing:0.5px;
+  }
+  h1{
+    border-bottom:3px dotted #ea37a3;
+    padding-bottom:0.5rem;
+  }
+  h2{
+    border-left:4px solid #ea37a3;
+    padding-left:10px;
+    margin-top:2rem;
+  }
+  p,li{line-height:1.7;}
+  ul{margin-left:1.2rem;}
+
+  .note{
+    border-left:4px solid #ea37a3;
+    background:#fff5fb;
+    padding:0.8rem 1rem;
+    font-size:0.95rem;
+    margin-top:1rem;
+  }
+
+  .box{
+    border:1.5px solid #00b0b0;
+    border-radius:8px;
+    padding:1rem 1.3rem;
+    background:#f9ffff;
+    margin-top:1rem;
+  }
+
+  .example{text-align:center;margin:1.5rem 0;}
+  .example img{
+    max-width:100%;
+    border-radius:8px;
+    border:2px solid #00b0b0;
+    box-shadow:0 0 12px rgba(0,180,180,0.2);
+  }
+  .banner-caption{
+    font-size:0.9rem;
+    color:#555;
+    font-style:italic;
+  }
+
+  /* --- Outcome Banner --- */
+  .outcome-banner{text-align:center;margin:2rem 0 3rem;}
+  .outcome-banner img{
+    width:100%;
+    border-radius:8px;
+    border:2px solid #00b0b0;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  }
+  .outcome-banner .caption{
+    font-size:0.9rem;
+    color:#555;
+    font-style:italic;
+    margin-top:0.3rem;
+  }
+
+  /* --- Hover Thumbnail Video Banner --- */
+  .video-banner-wrapper{
+    width:100%;
+    max-width:820px;
+    height:140px;
+    margin:1rem auto;
+    border:2px solid #00b0b0;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 0 12px rgba(0,180,180,0.2);
+    position:relative;
+    cursor:pointer;
+  }
+  .video-thumb{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:opacity 0.3s ease;
+  }
+  .play-overlay{
+    position:absolute;
+    top:0;left:0;right:0;bottom:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,0.45);
+    font-size:2rem;
+    color:#0a8080;
+    opacity:0;
+    transition:opacity 0.3s ease;
+  }
+  .video-banner-wrapper:hover .play-overlay{opacity:1;}
+
+  .artist-section{
+    margin-top:3rem;
+    padding:1.5rem;
+    border:2px solid #00b0b0;
+    border-radius:10px;
+    background:linear-gradient(135deg,#f9ffff,#fff5fb);
+  }
+  .artist-section h2{
+    border-bottom:2px dotted #ea37a3;
+    padding-bottom:.4rem;
+    margin-bottom:1rem;
+  }
+  .reflection{
+    border-top:2px dashed #ea37a3;
+    margin-top:2rem;
+    padding-top:1rem;
+  }
+  footer{
+    text-align:center;
+    margin-top:2rem;
+    font-size:0.8rem;
+    color:#555;
+  }
+
+  @media(max-width:700px){
+    .container{padding:2rem;}
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Photoshop Exercise — <span class="highlight">Content-Aware Fill & Artist Reflection</span></h1>
+
+<!-- Outcome Example -->
+<div class="outcome-banner">
+  <img src="images/outcome-example.jpg" alt="Example outcome from Content-Aware Fill and artist reflection exercise">
+  <div class="caption">Example outcome demonstrating use of Content‑Aware Fill and contextual artist research text.</div>
+</div>
+
+<p><strong>Purpose:</strong> Combine <em>Photoshop practical skills</em> with <em>artist research and reflection</em>. Use <strong>Content‑Aware Fill</strong> to create experimental imagery from your project work, then use the <strong>Type Tool (T)</strong> for contextual annotations and references on your A3 portfolio pages.</p>
+
+<div class="note">
+Recommended format: <strong>A3 landscape (420 × 297 mm) | 300 dpi | CMYK</strong>
+</div>
+
+<h2>Step 1 — Prepare Your Document</h2>
+<div class="box">
+  <ul>
+    <li>File → New → Print → <strong>A3 Landscape</strong>.</li>
+    <li>Resolution = <strong>300 dpi</strong>, Colour Mode = <strong>CMYK</strong>.</li>
+  </ul>
+</div>
+
+<div class="example">
+  <img src="images/step1-new-document.jpg" alt="Creating a new A3 document in Photoshop">
+  <div class="banner-caption">Create your A3 layout for consistent portfolio presentation.</div>
+</div>
+
+<h2>Step 2 — Import and Arrange Work</h2>
+<div class="box">
+  <ul>
+    <li>Drag in images of your design work (scan, photograph, etc.).</li>
+    <li>Use <strong>Move Tool (V)</strong> + <strong>Cmd/Ctrl + T</strong> to position and scale.</li>
+    <li>Add a white background layer via <strong>Edit → Fill → White</strong>.</li>
+  </ul>
+</div>
+
+<div class="example">
+  <img src="images/step2-import-work.jpg" alt="Arrange design work on A3 layout">
+  <div class="banner-caption">Experiment with balanced composition before applying Photoshop effects.</div>
+</div>
+
+<h2>Step 3 — Apply Content‑Aware Fill</h2>
+<div class="box">
+  <ul>
+    <li>Select a small area using <strong>Rectangular Marquee (M)</strong>.</li>
+    <li>Copy and Paste (<strong>Cmd/Ctrl +C, +V</strong>) to duplicate.</li>
+    <li>Use <strong>Magic Wand Tool (W)</strong> around the shape.</li>
+    <li><strong>Edit → Content‑Aware Fill…</strong> → adjust preview, then <strong>OK</strong>.</li>
+  </ul>
+</div>
+
+<!-- Hover Thumbnail Video Preview for Content Aware Fill -->
+<div class="video-banner-wrapper" onclick="openVideo('contentaware')">
+  <img src="images/thumb-content-aware.jpg" alt="Preview of Content Aware Fill demo" class="video-thumb">
+  <div class="play-overlay">▶</div>
+</div>
+<div id="contentaware" style="display:none;">
+  <iframe 
+    src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=YOUR-CONTENT-AWARE-FILL-VIDEO-ID&autoplay=true&offerviewer=false&showtitle=false&showbrand=false"
+    allow="autoplay" allowfullscreen
+    style="width:100%;height:140px;border:none;">
+  </iframe>
+</div>
+<div class="banner-caption">Hover or click to watch how Content‑Aware Fill works step by step.</div>
+
+<div class="example">
+  <img src="images/step3-content-aware.jpg" alt="Example of Content Aware Fill applied">
+  <div class="banner-caption">Explore how Content‑Aware Fill transforms composition and surface.</div>
+</div>
+
+<h2>Step 4 — Refine and Blend</h2>
+<div class="box">
+  <ul>
+    <li>Merge selected layers → <strong>Merge Layers</strong>.</li>
+    <li>Experiment with <strong>Blending Modes</strong> and Opacity.</li>
+    <li>Seek subtle, cohesive integration between layers.</li>
+  </ul>
+</div>
+
+<div class="example">
+  <img src="images/step4-blending.jpg" alt="Blending modes example">
+  <div class="banner-caption">Blend Content‑Aware textures for a unified image.</div>
+</div>
+
+<h2>Step 5 — Add Artist Research & Text</h2>
+<div class="box">
+  <ul>
+    <li>Select <strong>Type Tool (T)</strong> to create text labels and annotations.</li>
+    <li>Add:
+      <ul>
+        <li>Artist names + short context lines.</li>
+        <li>Links between their practice and your own.</li>
+        <li>Brief reflective statements.</li>
+      </ul>
+    </li>
+    <li>Choose small, light fonts – avoid distraction from imagery.</li>
+  </ul>
+</div>
+
+<!-- Hover Thumbnail Video Preview for Type Tool -->
+<div class="video-banner-wrapper" onclick="openVideo('typetool')">
+  <img src="images/thumb-type-tool.jpg" alt="Preview of Type Tool demo" class="video-thumb">
+  <div class="play-overlay">▶</div>
+</div>
+<div id="typetool" style="display:none;">
+  <iframe 
+    src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=YOUR-TYPE-TOOL-VIDEO-ID&autoplay=true&offerviewer=false&showtitle=false&showbrand=false"
+    allow="autoplay" allowfullscreen
+    style="width:100%;height:140px;border:none;">
+  </iframe>
+</div>
+<div class="banner-caption">Hover or click to view a short guide on adding and formatting text using Type Tool (T).</div>
+
+<div class="example">
+  <img src="images/step5-type-tool.jpg" alt="Adding artist research text example">
+  <div class="banner-caption">Use clear, refined typography to complement visual content.</div>
+</div>
+
+<h2>Step 6 — Finalise Your A3 Page</h2>
+<div class="box">
+  <ul>
+    <li>Check flow and balance across your A3 layout.</li>
+    <li>Save as <strong>.PSD</strong> (editable) and <strong>.JPG</strong> (for sharing or print).</li>
+    <li>Add short reflection notes about insights gained.</li>
+  </ul>
+</div>
+
+<div class="example">
+  <img src="images/step6-save-page.jpg" alt="Final A3 layout example">
+  <div class="banner-caption">A cohesive, professional outcome integrating experiment and research.</div>
+</div>
+
+<div class="artist-section">
+  <h2>Artist Research & Reflection — Independent Task</h2>
+  <p>Identify artists or designers exploring <strong>erasure</strong>, <strong>surface change</strong>, <strong>digital editing</strong>, or <strong>image transformation</strong>. Possible examples:</p>
+  <ul>
+    <li><strong>Gerhard Richter</strong> – blurred abstraction between painting and photography.</li>
+    <li><strong>Lorna Simpson</strong> – collage of text + image to probe identity and memory.</li>
+    <li><strong>Andreas Gursky</strong> – digitally composed monumental photographs.</li>
+    <li><strong>Ruth van Beek</strong> – cut‑out arrangements suggesting accidental gesture.</li>
+    <li><strong>Sarah Charlesworth</strong> – conceptual compositions around meaning and media.</li>
+  </ul>
+
+  <div class="reflection">
+    <p><strong>Reflection prompts — include brief notes on your A3 page:</strong></p>
+    <ul>
+      <li>Which artist or idea connects to your Photoshop experiment?</li>
+      <li>What visual or conceptual link can you identify?</li>
+      <li>How did their method influence your editing decisions?</li>
+      <li>Include a typed source or credit line (artist + website/book).</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+© 2025 Content‑Aware Fill + Artist Reflection Exercise | Encouraging visual experimentation and reflective practice.
+</footer>
+
+<script>
+function openVideo(id){
+  const wrapper=document.getElementById(id);
+  if(wrapper.style.display==="none"){
+    wrapper.style.display="block";
+  }else{
+    wrapper.style.display="none";
+  }
+}
+</script>
+
+</div>
+</body>
+</html>
