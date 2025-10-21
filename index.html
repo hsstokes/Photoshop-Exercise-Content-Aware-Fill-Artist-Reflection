@@ -43,7 +43,6 @@
   }
   p,li{line-height:1.7;}
   ul{margin-left:1.2rem;}
-
   .note{
     border-left:4px solid #ea37a3;
     background:#fff5fb;
@@ -51,7 +50,6 @@
     font-size:0.95rem;
     margin-top:1rem;
   }
-
   .box{
     border:1.5px solid #00b0b0;
     border-radius:8px;
@@ -59,7 +57,6 @@
     background:#f9ffff;
     margin-top:1rem;
   }
-
   .example{text-align:center;margin:1.5rem 0;}
   .example img{
     max-width:100%;
@@ -73,7 +70,7 @@
     font-style:italic;
   }
 
-  /* --- Outcome Banner --- */
+  /* Outcome banner */
   .outcome-banner{text-align:center;margin:2rem 0 3rem;}
   .outcome-banner img{
     width:100%;
@@ -88,7 +85,7 @@
     margin-top:0.3rem;
   }
 
-  /* --- Hover Thumbnail Video Banner --- */
+  /* Video thumbnail style */
   .video-banner-wrapper{
     width:100%;
     max-width:820px;
@@ -102,11 +99,10 @@
     cursor:pointer;
   }
   .video-thumb{
-    width:100%;
-    height:100%;
+    width:100%;height:100%;
     object-fit:cover;
     display:block;
-    transition:opacity 0.3s ease;
+    transition:opacity .3s ease;
   }
   .play-overlay{
     position:absolute;
@@ -118,10 +114,11 @@
     font-size:2rem;
     color:#0a8080;
     opacity:0;
-    transition:opacity 0.3s ease;
+    transition:opacity .3s ease;
   }
   .video-banner-wrapper:hover .play-overlay{opacity:1;}
 
+  /* Artist section */
   .artist-section{
     margin-top:3rem;
     padding:1.5rem;
@@ -139,13 +136,58 @@
     margin-top:2rem;
     padding-top:1rem;
   }
+
+  /* Quiz styling */
+  .quiz-section{
+    margin-top:3rem;
+    border:2px solid #00b0b0;
+    border-radius:10px;
+    padding:1.5rem;
+    background:linear-gradient(135deg,#fff5fb,#f9ffff);
+  }
+  .quiz-question{
+    margin-bottom:1rem;
+    font-weight:bold;
+    color:#0a8080;
+  }
+  .answers{
+    list-style:none;
+    padding-left:0;
+    margin-bottom:1rem;
+  }
+  .answers li{
+    margin:0.3rem 0;
+  }
+  .answers label{
+    cursor:pointer;
+  }
+  .feedback{
+    font-style:italic;
+    font-size:0.9rem;
+    color:#ea37a3;
+    margin-top:-4px;
+    margin-left:1.2rem;
+  }
+  button.submit-quiz{
+    background:#00b0b0;
+    color:#fff;
+    border:none;
+    padding:0.6rem 1.2rem;
+    font-family:inherit;
+    font-size:1rem;
+    border-radius:6px;
+    cursor:pointer;
+  }
+  button.submit-quiz:hover{
+    background:#0a8080;
+  }
+
   footer{
     text-align:center;
-    margin-top:2rem;
+    margin-top:3rem;
     font-size:0.8rem;
     color:#555;
   }
-
   @media(max-width:700px){
     .container{padding:2rem;}
   }
@@ -158,171 +200,199 @@
 
 <!-- Outcome Example -->
 <div class="outcome-banner">
-  <img src="images/outcome-example.jpg" alt="Example outcome from Content-Aware Fill and artist reflection exercise">
+  <img src="images/outcome-example.jpg" alt="Example outcome">
   <div class="caption">Example outcome demonstrating use of Content‑Aware Fill and contextual artist research text.</div>
 </div>
 
-<p><strong>Purpose:</strong> Combine <em>Photoshop practical skills</em> with <em>artist research and reflection</em>. Use <strong>Content‑Aware Fill</strong> to create experimental imagery from your project work, then use the <strong>Type Tool (T)</strong> for contextual annotations and references on your A3 portfolio pages.</p>
+<p><strong>Purpose:</strong> Combine <em>Photoshop practical skills</em> with <em>artist research and reflection</em>. Use <strong>Content‑Aware Fill</strong> to create experimental imagery from your project work, then add contextual notes with the <strong>Type Tool (T)</strong>.</p>
 
-<div class="note">
-Recommended format: <strong>A3 landscape (420 × 297 mm) | 300 dpi | CMYK</strong>
-</div>
+<div class="note">Recommended format: <strong>A3 landscape (420 × 297 mm) | 300 dpi | CMYK</strong></div>
 
-<h2>Step 1 — Prepare Your Document</h2>
+<h2>Step 1 — Prepare Document</h2>
 <div class="box">
   <ul>
-    <li>File → New → Print → <strong>A3 Landscape</strong>.</li>
-    <li>Resolution = <strong>300 dpi</strong>, Colour Mode = <strong>CMYK</strong>.</li>
+    <li>File → New → <strong>A3 Landscape</strong>.</li>
+    <li>Resolution 300 dpi, Colour Mode CMYK.</li>
   </ul>
 </div>
 
 <div class="example">
-  <img src="images/step1-new-document.jpg" alt="Creating a new A3 document in Photoshop">
+  <img src="images/step1-new-document.jpg" alt="Creating new document">
   <div class="banner-caption">Create your A3 layout for consistent portfolio presentation.</div>
 </div>
 
-<h2>Step 2 — Import and Arrange Work</h2>
+<h2>Step 2 — Arrange Your Work</h2>
 <div class="box">
   <ul>
-    <li>Drag in images of your design work (scan, photograph, etc.).</li>
-    <li>Use <strong>Move Tool (V)</strong> + <strong>Cmd/Ctrl + T</strong> to position and scale.</li>
-    <li>Add a white background layer via <strong>Edit → Fill → White</strong>.</li>
+    <li>Import images of design experiments.</li>
+    <li>Use <strong>Move Tool (V)</strong> and <strong>Cmd/Ctrl + T</strong> to position/scale.</li>
+    <li>Add white background layer (<strong>Edit → Fill → White</strong>).</li>
   </ul>
 </div>
 
 <div class="example">
-  <img src="images/step2-import-work.jpg" alt="Arrange design work on A3 layout">
-  <div class="banner-caption">Experiment with balanced composition before applying Photoshop effects.</div>
+  <img src="images/step2-import-work.jpg" alt="Arrange work">
+  <div class="banner-caption">Balance the composition before adding effects.</div>
 </div>
 
-<h2>Step 3 — Apply Content‑Aware Fill</h2>
+<h2>Step 3 — Content‑Aware Fill</h2>
 <div class="box">
   <ul>
-    <li>Select a small area using <strong>Rectangular Marquee (M)</strong>.</li>
-    <li>Copy and Paste (<strong>Cmd/Ctrl +C, +V</strong>) to duplicate.</li>
-    <li>Use <strong>Magic Wand Tool (W)</strong> around the shape.</li>
-    <li><strong>Edit → Content‑Aware Fill…</strong> → adjust preview, then <strong>OK</strong>.</li>
+    <li>Select area with <strong>Rectangular Marquee (M)</strong>.</li>
+    <li><strong>Edit → Content‑Aware Fill…</strong> → adjust preview → OK.</li>
   </ul>
 </div>
 
-<!-- Hover Thumbnail Video Preview for Content Aware Fill -->
+<!-- Video thumbnail -->
 <div class="video-banner-wrapper" onclick="openVideo('contentaware')">
-  <img src="images/thumb-content-aware.jpg" alt="Preview of Content Aware Fill demo" class="video-thumb">
+  <img src="images/thumb-content-aware.jpg" alt="Preview Content Aware Fill demo" class="video-thumb">
   <div class="play-overlay">▶</div>
 </div>
 <div id="contentaware" style="display:none;">
-  <iframe 
-    src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=YOUR-CONTENT-AWARE-FILL-VIDEO-ID&autoplay=true&offerviewer=false&showtitle=false&showbrand=false"
-    allow="autoplay" allowfullscreen
-    style="width:100%;height:140px;border:none;">
-  </iframe>
+  <iframe src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=YOUR-CONTENT-AWARE-FILL-VIDEO-ID&autoplay=true&offerviewer=false&showtitle=false&showbrand=false"
+          allow="autoplay" allowfullscreen style="width:100%;height:140px;border:none;"></iframe>
 </div>
-<div class="banner-caption">Hover or click to watch how Content‑Aware Fill works step by step.</div>
+<div class="banner-caption">Hover or click to watch how Content‑Aware Fill works.</div>
 
 <div class="example">
-  <img src="images/step3-content-aware.jpg" alt="Example of Content Aware Fill applied">
-  <div class="banner-caption">Explore how Content‑Aware Fill transforms composition and surface.</div>
+  <img src="images/step3-content-aware.jpg" alt="Content Aware example">
+  <div class="banner-caption">Explore how Content‑Aware Fill transforms imagery.</div>
 </div>
 
 <h2>Step 4 — Refine and Blend</h2>
 <div class="box">
   <ul>
-    <li>Merge selected layers → <strong>Merge Layers</strong>.</li>
-    <li>Experiment with <strong>Blending Modes</strong> and Opacity.</li>
-    <li>Seek subtle, cohesive integration between layers.</li>
+    <li>Merge layers and experiment with blending modes and opacity.</li>
   </ul>
 </div>
 
 <div class="example">
-  <img src="images/step4-blending.jpg" alt="Blending modes example">
-  <div class="banner-caption">Blend Content‑Aware textures for a unified image.</div>
+  <img src="images/step4-blending.jpg" alt="Blending">
+  <div class="banner-caption">Blend layers for a unified effect.</div>
 </div>
 
-<h2>Step 5 — Add Artist Research & Text</h2>
+<h2>Step 5 — Add Text & Artist Research</h2>
 <div class="box">
   <ul>
-    <li>Select <strong>Type Tool (T)</strong> to create text labels and annotations.</li>
-    <li>Add:
-      <ul>
-        <li>Artist names + short context lines.</li>
-        <li>Links between their practice and your own.</li>
-        <li>Brief reflective statements.</li>
-      </ul>
-    </li>
-    <li>Choose small, light fonts – avoid distraction from imagery.</li>
+    <li>Use <strong>Type Tool (T)</strong> for artist names, quotes and reflections.</li>
   </ul>
 </div>
 
-<!-- Hover Thumbnail Video Preview for Type Tool -->
 <div class="video-banner-wrapper" onclick="openVideo('typetool')">
-  <img src="images/thumb-type-tool.jpg" alt="Preview of Type Tool demo" class="video-thumb">
+  <img src="images/thumb-type-tool.jpg" alt="Preview Type Tool demo" class="video-thumb">
   <div class="play-overlay">▶</div>
 </div>
 <div id="typetool" style="display:none;">
-  <iframe 
-    src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=YOUR-TYPE-TOOL-VIDEO-ID&autoplay=true&offerviewer=false&showtitle=false&showbrand=false"
-    allow="autoplay" allowfullscreen
-    style="width:100%;height:140px;border:none;">
-  </iframe>
+  <iframe src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=YOUR-TYPE-TOOL-VIDEO-ID&autoplay=true&offerviewer=false&showtitle=false&showbrand=false"
+          allow="autoplay" allowfullscreen style="width:100%;height:140px;border:none;"></iframe>
 </div>
-<div class="banner-caption">Hover or click to view a short guide on adding and formatting text using Type Tool (T).</div>
+<div class="banner-caption">Click to review adding and formatting text in Photoshop.</div>
 
 <div class="example">
-  <img src="images/step5-type-tool.jpg" alt="Adding artist research text example">
-  <div class="banner-caption">Use clear, refined typography to complement visual content.</div>
+  <img src="images/step5-type-tool.jpg" alt="Type Tool example">
+  <div class="banner-caption">Use clear, refined typography to complement visuals.</div>
 </div>
 
-<h2>Step 6 — Finalise Your A3 Page</h2>
+<h2>Step 6 — Finalise A3 Page</h2>
 <div class="box">
   <ul>
-    <li>Check flow and balance across your A3 layout.</li>
-    <li>Save as <strong>.PSD</strong> (editable) and <strong>.JPG</strong> (for sharing or print).</li>
-    <li>Add short reflection notes about insights gained.</li>
+    <li>Check flow and balance → Save as .PSD and .JPG for submission.</li>
   </ul>
 </div>
 
 <div class="example">
-  <img src="images/step6-save-page.jpg" alt="Final A3 layout example">
-  <div class="banner-caption">A cohesive, professional outcome integrating experiment and research.</div>
+  <img src="images/step6-save-page.jpg" alt="Final layout">
+  <div class="banner-caption">A cohesive, professional outcome combining skill and reflection.</div>
 </div>
 
+<!-- Artist Section -->
 <div class="artist-section">
-  <h2>Artist Research & Reflection — Independent Task</h2>
-  <p>Identify artists or designers exploring <strong>erasure</strong>, <strong>surface change</strong>, <strong>digital editing</strong>, or <strong>image transformation</strong>. Possible examples:</p>
+  <h2>Artist Research & Reflection</h2>
+  <p>Select relevant artists examining <strong>erasure</strong>, <strong>surface manipulation</strong>, <strong>digital collage</strong>, or <strong>image transformation</strong>.</p>
   <ul>
-    <li><strong>Gerhard Richter</strong> – blurred abstraction between painting and photography.</li>
-    <li><strong>Lorna Simpson</strong> – collage of text + image to probe identity and memory.</li>
-    <li><strong>Andreas Gursky</strong> – digitally composed monumental photographs.</li>
-    <li><strong>Ruth van Beek</strong> – cut‑out arrangements suggesting accidental gesture.</li>
-    <li><strong>Sarah Charlesworth</strong> – conceptual compositions around meaning and media.</li>
+    <li><strong>Gerhard Richter</strong> – Blurred abstraction between media.</li>
+    <li><strong>Lorna Simpson</strong> – Collage & text exploring identity.</li>
+    <li><strong>Andreas Gursky</strong> – Digitally structured composition.</li>
+    <li><strong>Ruth van Beek</strong> – Cut‑outs implying movement.</li>
+    <li><strong>Sarah Charlesworth</strong> – Conceptual image re‑contextualisation.</li>
   </ul>
-
   <div class="reflection">
-    <p><strong>Reflection prompts — include brief notes on your A3 page:</strong></p>
+    <p><strong>Reflection prompts — add text directly to your A3 page:</strong></p>
     <ul>
-      <li>Which artist or idea connects to your Photoshop experiment?</li>
-      <li>What visual or conceptual link can you identify?</li>
-      <li>How did their method influence your editing decisions?</li>
-      <li>Include a typed source or credit line (artist + website/book).</li>
+      <li>Which artist connects to your Photoshop experiment?</li>
+      <li>How did their approach influence your composition?</li>
+      <li>Include a short typed reference (artist + website/book).</li>
     </ul>
   </div>
+</div>
+
+<!-- QUIZ SECTION -->
+<div class="quiz-section" id="quiz">
+  <h2>Step 7 — Quick Quiz: Photoshop Essentials</h2>
+
+  <div class="quiz-question">1. Which Photoshop tool automatically fills a selected area by analysing surrounding pixels?</div>
+  <ul class="answers">
+    <li><label><input type="radio" name="q1" value="a"> Clone Stamp Tool</label></li>
+    <li><label><input type="radio" name="q1" value="b"> Content‑Aware Fill</label></li>
+    <li><label><input type="radio" name="q1" value="c"> Gradient Tool</label></li>
+  </ul>
+  <div class="feedback" id="f1"></div>
+
+  <div class="quiz-question">2. What shortcut key activates the Type Tool?</div>
+  <ul class="answers">
+    <li><label><input type="radio" name="q2" value="a"> M</label></li>
+    <li><label><input type="radio" name="q2" value="b"> T</label></li>
+    <li><label><input type="radio" name="q2" value="c"> B</label></li>
+  </ul>
+  <div class="feedback" id="f2"></div>
+
+  <div class="quiz-question">3. What file format should be used for saving editable Photoshop files?</div>
+  <ul class="answers">
+    <li><label><input type="radio" name="q3" value="a"> JPG</label></li>
+    <li><label><input type="radio" name="q3" value="b"> PNG</label></li>
+    <li><label><input type="radio" name="q3" value="c"> PSD</label></li>
+  </ul>
+  <div class="feedback" id="f3"></div>
+
+  <div class="quiz-question">4. In preparing your layout, which resolution ensures print quality?</div>
+  <ul class="answers">
+    <li><label><input type="radio" name="q4" value="a"> 72 dpi</label></li>
+    <li><label><input type="radio" name="q4" value="b"> 150 dpi</label></li>
+    <li><label><input type="radio" name="q4" value="c"> 300 dpi</label></li>
+  </ul>
+  <div class="feedback" id="f4"></div>
+
+  <button class="submit-quiz" onclick="checkQuiz()">Check Answers</button>
 </div>
 
 <footer>
 © 2025 Content‑Aware Fill + Artist Reflection Exercise | Encouraging visual experimentation and reflective practice.
 </footer>
+</div>
 
 <script>
 function openVideo(id){
-  const wrapper=document.getElementById(id);
-  if(wrapper.style.display==="none"){
-    wrapper.style.display="block";
-  }else{
-    wrapper.style.display="none";
+  const el=document.getElementById(id);
+  el.style.display=(el.style.display==="none")?"block":"none";
+}
+
+function checkQuiz(){
+  const answers={q1:"b",q2:"b",q3:"c",q4:"c"};
+  for(let q in answers){
+    const selected=document.querySelector(`input[name="${q}"]:checked`);
+    const feedback=document.getElementById("f"+q.slice(1));
+    if(!selected){
+      feedback.textContent="Please select an answer.";
+      feedback.style.color="#ea37a3";
+    }else if(selected.value===answers[q]){
+      feedback.textContent="✅ Correct!";
+      feedback.style.color="#0a8080";
+    }else{
+      feedback.textContent="❌ Try again.";
+      feedback.style.color="#ea37a3";
+    }
   }
 }
 </script>
-
-</div>
 </body>
 </html>
